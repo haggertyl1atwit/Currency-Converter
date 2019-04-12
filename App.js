@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, TouchableHighlight, StyleSheet, TextInput } from 'react-native';
+import { AppRegistry, ActivityIndicator, Text, View, TouchableHighlight, StyleSheet, TextInput, toFixed,  } from 'react-native';
 import { Constants } from 'expo';
 
 export default class App extends Component {
@@ -9,6 +9,7 @@ export default class App extends Component {
         bal: 1,
         newBal: 0,
         inputValue: '0',
+        isLoading: true,
         dataSource: null,
         }
     }
@@ -29,42 +30,42 @@ export default class App extends Component {
     
     usdToEuro = () => {
         this.setState({
-            newBal: this.state.dataSource.USDEUR
+            newBal: this.state.inputValue * this.state.dataSource.USDEUR
         })
     }
     usdToPound = () => {
         this.setState({
-            newBal: this.state.dataSource.USDGBP
+            newBal: this.state.inputValue * this.state.dataSource.USDGBP
         })
     }
     usdToRupee = () => {
         this.setState({
-            newBal: this.state.dataSource.USDINR
+            newBal: this.state.inputValue * this.state.dataSource.USDINR
         })
     }
     usdToAussie = () => {
         this.setState({
-            newBal: this.state.dataSource.USDAUD 
+            newBal: this.state.inputValue * this.state.dataSource.USDAUD 
         })
     }
     usdToCanada = () => {
         this.setState({
-            newBal: this.state.dataSource.USDCAD
+            newBal: this.state.inputValue * this.state.dataSource.USDCAD
         })
     }
     usdToSwiss = () => {
         this.setState({
-            newBal: this.state.dataSource.USDCHF
+            newBal: this.state.inputValue * this.state.dataSource.USDCHF
         })
     }
     usdToYuan = () => {
         this.setState({
-            newBal: this.state.dataSource.USDCNY
+            newBal: this.state.inputValue * this.state.dataSource.USDCNY
         })
     }
     usdToYen = () => {
         this.setState({
-            newBal: this.state.dataSource.USDJPY 
+            newBal: this.state.inputValue * this.state.dataSource.USDJPY 
         })
     }
     _handleTextChange = inputValue => {
@@ -175,7 +176,7 @@ export default class App extends Component {
                 </Text>
                 
                 <Text style={styles.paragraph}>
-                    Converted: {this.state.newBal}
+                    Converted: {this.state.newBal.toFixed(2)}
                 </Text>
                 
             </View>
@@ -211,5 +212,6 @@ const styles = StyleSheet.create({
     paragraph: {
         marginBottom: 10,
         fontSize: 20,
+        color: 'red',
     }
 });

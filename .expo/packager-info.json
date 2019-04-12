@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 10116,
+  "packagerPid": 10312,
   "expoServerNgrokUrl": "https://52-6fy.anonymous.currency-converter.exp.direct",
   "packagerNgrokUrl": "https://packager.52-6fy.anonymous.currency-converter.exp.direct",
-  "ngrokPid": 9356
+  "ngrokPid": 8740,
+  "webpackServerPort": null
 }
